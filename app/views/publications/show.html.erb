@@ -1,0 +1,9 @@
+<h1><%=@publication.authors%>, <%=@publication.date%></h1>
+<h3><%=@publication.citation%></h3>
+<% if @publication.featured %>
+  <h3>Featured</h3>
+<% end %>
+<% unless @publication.abstract == ''%>
+  <h3>Abstract</h3>
+  <p><%= @publication.abstract %>
+<% end %>

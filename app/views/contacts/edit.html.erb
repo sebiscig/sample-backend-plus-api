@@ -1,0 +1,32 @@
+<h1>Contact information for <%=@contact.name %></h1>
+
+<%=form_for(@contact) do |f| %>
+Academic appointment</br>
+  <%= f.label :title, 'title' %>
+<%=f.text_field :title%>
+  <%= f.label :unit, 'unit' %>
+<%=f.text_field :unit%>
+<%= f.label :intitution, 'intitution' %>
+<%=f.text_field :institution%>
+</p>
+<p>Mailing address<br />
+  <%= f.label :street, 'street and number' %>
+  <%=f.text_field :street%>
+
+  <%= f.label :city, 'city' %>
+  <%=f.text_field :city%>
+
+  <%= f.label :state, 'state/province' %>
+  <%=f.text_field :state%>
+
+  <%= f.label :zip, 'zip/postal code' %>
+  <%=f.text_field :zip%></p>
+
+<p><%= f.label :email %>
+<%=f.text_field :email%></p>
+
+<p><%= f.label :phone, 'work phone' %>
+<%=f.text_field :phone%></p>
+
+<%= f.submit 'Update contact'%>
+<% end %>

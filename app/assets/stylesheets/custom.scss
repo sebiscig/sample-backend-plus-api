@@ -1,0 +1,23 @@
+@import 'w3';
+@import 'theme';
+
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Playfair+Display:400,400i,700,700i');
+
+$sans-serif: 'Nunito Sans', sans-serif;
+$serif: 'Playfair Display', serif;
+
+.serif {font-family: $serif};
+.sans-serif { font-family: $sans-serif; font-weight: 300;};
+
+.app-main {@extend .theme-l4; margin:auto; max-width: 1000px; min-height: 100%;};
+
+html,body {height: 100%;}
+
+.bold {font-weight: bold;}
+
+textarea.blurb-text{height: 10em;}
+
+/*.index-row {
+  @extend .w3-row;
+
+}*/

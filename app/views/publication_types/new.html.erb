@@ -1,0 +1,9 @@
+<h1>Create a new publication type</h1>
+<%=form_for(@pub_type) do |f| %>
+<p><%= f.label :type %>
+<%=f.text_field :kind%></p>
+<p><%=f.label :rank %><br/>
+  <%= f.select :rank, options_for_select(1..@new_pub_types_count, @new_pub_types_count)%>
+</p>
+<%= f.submit 'Create publication type'%>
+<% end %>

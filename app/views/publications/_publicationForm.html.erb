@@ -1,0 +1,28 @@
+<%=form_for(@publication, html: {class:"w3-input"}) do |f| %>
+<p><%= f.label :authors, 'Author(s)', class:"bold" %>
+<%=f.text_field :authors, class:"w3-input w3-round"%></p>
+<p><%=f.label :date, class:"bold" %><br/>
+  <%=f.text_field :date, class:"w3-input w3-round"%></p>
+  <p><%=f.label :citation, 'Citation*', class:"bold" %><br/>
+    <%=f.text_field :citation, class:"w3-input w3-round" %></p>
+  <%= f.select(:publication_type_id) do%>
+    <% @publication_types.each do |type| %>
+      <% if @publication.authors %>
+        <%= content_tag(:option, type.kind, value: type.id, selected: (type.id == @publication.publication_type.id ? true : nil)) %>
+      <% else %>
+        <%= content_tag(:option, type.kind, value: type.id )%>
+      <% end %>
+    <% end %>
+  <% end %>
+  <p><%=f.label :featured, class:"bold" %>&nbsp;
+    <%= f.check_box :featured, style:'inline'%></p>
+    <p><%=f.label :abstract, "Abstract*", class:"bold" %><br/>
+      <%=f.text_area :abstract, class:"w3-input blurb-text w3-round"%></p>
+
+      <%if @publication.authors %>
+        <%= f.submit 'Update publication', class:"w3-input w3-btn theme-d1", data: {confirm: "Are you sure?"}%>
+      <%else%>
+        <%= f.submit 'Create publication', class:"w3-input w3-btn theme-d1", data: {confirm: "Are you sure?"}%>
+      <%end%>
+<% end %>
+<%= render 'partials/markDownHint' %>

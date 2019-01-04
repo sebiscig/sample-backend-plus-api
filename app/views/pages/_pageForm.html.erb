@@ -1,0 +1,16 @@
+<%=form_for(@page, html: {class:"w3-input"}) do |f| %>
+<%unless @page.title %>
+<p><%= f.label :title, class:"bold" %>
+<%=f.text_field :title, class:"w3-input w3-round"%></p>
+<%end%>
+<p><%= f.label :heading, class:"bold" %>
+<%=f.text_field :heading, class:"w3-input w3-round"%></p>
+<p><%=f.label :blurb, "Blurb*", class:"bold" %><br/>
+<%= f.text_area :blurb, class:"w3-input blurb-text w3-round"%></p>
+  <%if @page.title %>
+    <%= f.submit 'Update page', class:"w3-input w3-btn theme-d1", data: {confirm: "Are you sure?"}%>
+  <%else%>
+    <%= f.submit 'Create page', class:"w3-input w3-btn theme-d1", data: {confirm: "Are you sure?"}%>
+  <%end%>
+<% end %>
+<%= render 'partials/markDownHint' %>

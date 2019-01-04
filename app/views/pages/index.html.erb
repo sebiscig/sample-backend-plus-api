@@ -1,0 +1,16 @@
+<div class="w3-container theme-d1">
+  <h1 class="serif">Pages Index</h1>
+</div>
+<div class="w3-container w3-padding sans-serif">
+  <div class="w3-white w3-card-4 w3-padding"><p>This is an index of the pages for your professional website. You can edit the content of each page or create new pages (bottom).</p></div>
+  <ul class="w3-ul">
+  <% @pages.each do |page| %>
+    <li class="serif w3-padding w3-border-bottom"><!--<%=link_to page.title, page%>-->
+      <%=page.title%>&nbsp;
+      <%=link_to 'Edit', edit_page_path(page), class: 'w3-btn theme-d1 w3-round'%>&emsp;
+      <!--<%=link_to "Delete", page, method: :delete, data: {confirm: "Are you sure?"}, class: 'w3-btn theme-d1 w3-round-large'%>--></li>
+
+  <% end %>
+  </ul>
+  <%=link_to 'Create New Page', new_page_path, class: 'w3-btn theme-d1 w3-round-large'%>
+</div>

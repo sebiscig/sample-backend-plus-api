@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sample Backend</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="w3-container app-main">
+      <% flash.each do |message_type, message| %>
+        <div class="theme-flash theme-flash-<%=message_type%>">
+          <p><%= message %></p>
+          <span onclick="this.parentElement.style.display='none'" class="theme-flash-close">&times;</span>
+        </div>
+      <% end %>
+
+        <%= yield %>
+
+    </div>
+  </body>
+</html>

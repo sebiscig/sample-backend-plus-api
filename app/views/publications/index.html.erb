@@ -1,0 +1,16 @@
+<div class="w3-container theme-d1">
+  <h1 class="serif">Publications Index</h1>
+</div>
+<div class="w3-container w3-padding sans-serif">
+  <div class="w3-white w3-card-4 w3-padding"><p>This is an index of your publications, grouped by type in order of decreasing rank. Click &ldquo;Edit&rdquo; to modify a publication&rsquo;s information or &ldquo;Delete&rdquo; to remove it. You can also add a new publication.</p></div>
+  <p><%=link_to raw('<strong>&plus;</strong> Publication'), new_publication_path, class: 'w3-btn theme-d1 w3-round-large'%></p>
+  <% @publication_groups.each do |publication_group| %>
+    <h5 class="serif w3-padding theme-d1"><%=publication_group[1].first.publication_type.kind%></h5>
+      <ul class="w3-ul">
+      <% publication_group[1].each do |publication| %>
+        <li class='serif w3-border-bottom w3-padding'><%=link_to (publication.authors+'. '+publication.date+'. '+publication.citation), publication %>.&nbsp;
+          <%=link_to 'Edit',  edit_publication_path(publication), class:'w3-btn theme-d1 w3-round-xlarge'%>&emsp;<%=link_to "Delete", publication, method: :delete, data: {confirm: "Really delete #{publication.citation}? This can't be undone."}, class:'w3-btn theme-d1 w3-round-xlarge' %></li>
+      <% end %>
+    </ul>
+  <%end%>
+</div>

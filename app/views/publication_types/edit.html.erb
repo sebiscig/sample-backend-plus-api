@@ -1,0 +1,9 @@
+<h1>Edit content of &ldquo;<%=@pub_type.kind %>&rdquo; publication type</h1>
+<%=form_for(@pub_type) do |f| %>
+<p><%= f.label :type %>
+<%=f.text_field :kind%></p>
+<p><%=f.label :rank %><br/>
+  <%= f.select :rank, options_for_select(1..@pub_types_count, @pub_type.rank)%>
+</p>
+<%= f.submit 'Update publication type'%>
+<% end %>

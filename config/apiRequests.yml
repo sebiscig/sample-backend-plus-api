@@ -1,0 +1,3 @@
+development:
+  environment: development
+  allowableOrigin: 'http://localhost:4200'
